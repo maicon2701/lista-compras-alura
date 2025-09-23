@@ -29,6 +29,17 @@ botaoAdicionar.addEventListener("click",(evento) => { /*FUNÇÃO PARA ADICIONAR 
     const nomeItem = document.createElement("p");
     //O innerText altera o texto do elemento
     nomeItem.innerText = inputItem.value;
+
+    //Evento que faz com que quando o checkbox for clicado, ele risque o item da lista.
+    inputCheckbox.addEventListener("click",function (){
+        if (inputCheckbox.checked){
+            nomeItem.style.textDecoration = 'line-through';
+            } else {
+                nomeItem.style.textDecoration = 'none';
+            }
+        }
+    );
+
     //Atribui no elemento pai (containerItem) os elementos filhos (input e item). Basicamente estamos fazendo uma conexão entre as tags div,input e p
     containerItemDaLista.appendChild(inputCheckbox);
     containerItemDaLista.appendChild(nomeItem);
