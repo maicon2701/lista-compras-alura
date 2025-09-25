@@ -1,4 +1,5 @@
 import { criarItemDaLista } from "./scripts/criarItemDaLista.js";
+import verificarListaVazia from "./scripts/verificarListaVazia.js";
 const listaDeCompras = document.getElementById("lista-de-compras")
 const botaoAdicionar = document.getElementById('adicionar-item');
 
@@ -9,21 +10,10 @@ botaoAdicionar.addEventListener("click",(evento) => { /*FUNÇÃO PARA ADICIONAR 
     evento.preventDefault();
     const itemDaLista = criarItemDaLista();
     listaDeCompras.appendChild(itemDaLista)
-    verificarListaVazia();
+    verificarListaVazia(listaDeCompras);
 });
 
 //O querySelector seleciona o primeiro elemento que encontrar com a classe CSS especificada.
 const mensagemListaVazia = document.querySelector(".mensagem-lista-vazia")
 
-function verificarListaVazia() {
-    //O queryselectorAll seleciona todos os elementos que encontrar com a classe CSS especificada.
-    const itensDaLista = listaDeCompras.querySelectorAll("li");
-    if (itensDaLista.length === 0) {
-        mensagemListaVazia.style.display = "block";
-    } else{
-        mensagemListaVazia.style.display = "none";  
-    }
-}
-
-
-verificarListaVazia();
+verificarListaVazia(listaDeCompras);
